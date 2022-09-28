@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Cypress-Cucumber Tests
 on:
     push:
         branches: [master]
@@ -25,16 +25,3 @@ jobs:
               run: npm i --save-dev cypress-mochawesome-reporter
             - name: run test
               run: npm run cypress:run:hub 
-
-              if: always()
-              with:
-                  name: report
-                  path: .reports/
-                  retention-days: 5 
-            - name: Deploy to pages
-              if: always()
-              uses: peaceiris/actions-gh-pages@v3.7.3
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_branch: gh-pages
-                  publish_dir: .reports/
