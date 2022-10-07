@@ -2,6 +2,8 @@ import Page from '../page.cy'
 const seeNetworkingPricingButton='[href="/pricing/networking"]';
 const pricingMassagingPoPUp='(//*[@aria-haspopup="listbox"])[1]'
 const ukrainePriceMassagingInSelect='[href="/pricing/messaging/ua"]'
+const messagingPricingUkraineTitleTitle='//h1//span[text()="Messaging pricing for Ukraine"]'
+
 
 class PricingPage{
     clickSeeNetworkingPricingButton(){
@@ -12,6 +14,9 @@ class PricingPage{
     }
     clickUkrainePriceMassagingInSelect(){
         Page.clickForceTrue(ukrainePriceMassagingInSelect)
+    }
+    getMessagingPricingUkraineTitleTitle(){
+        return messagingPricingUkraineTitleTitle
     }
 }
 module.exports = new PricingPage();

@@ -1,20 +1,18 @@
 import MainPage from '../../page/telnyx/main.page.cy'
 import Expect from'../../helper/expect.cy'
-const login=Cypress.env('USER')
-const password=Cypress.env('PASSWORD')
-const dropDownMenu='react-title-bar svg[data-icon="angle-down"]';
+import LoginPage from '../../page/telnyx/login.page.cy'
 
 describe('Login page testing', () => {
   beforeEach(() => {
-    cy.visit('/')
+    MainPage.open();
     Expect.toHaveUrl('https://telnyx.com/');
     cy.closeModalWindowInManePage();
   })
     it('ID-1 -Sign in with valid email account', () => {
     MainPage.clickOnLoginHeaderBtn();
-    cy.login(login,password);
+    cy.login(LoginPage.getUser(),LoginPage.getPassword());
     Expect.shouldContainUrl('app');
-    Expect.shouldElementBeVisible(dropDownMenu);
+    Expect.shouldElementBeVisible(LoginPage.getDropDownMenuInPortal());
     })
   afterEach(() => {
     cy.screenshot({ overwrite: false })

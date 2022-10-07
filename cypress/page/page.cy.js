@@ -17,13 +17,13 @@ class Page {
     clickX(element) {
       this.getElementX(element).click();
     }
-    clickForceTrue(element){//for fix click
+    clickForceTrue(element){
        this.getElement(element).click({ force: true });
     }
-    clickXForceTrue(element){//for fix click
+    clickXForceTrue(element){
       this.getElementX(element).click({ force: true });
     }
-    clickWithDeleteTarget(element){//for fix click
+    clickWithDeleteTarget(element){
       this.getElement(element).invoke('removeAttr', 'target')
       this.getElement(element).click()
     }
@@ -46,11 +46,10 @@ class Page {
     toContainsUrl(value){
      cy.url().should('include',value)
     }
+    
     toHaveUrl(value){
        cy.url().should('eq', value);
     }
     
-    
-
 }
 module.exports = new Page();

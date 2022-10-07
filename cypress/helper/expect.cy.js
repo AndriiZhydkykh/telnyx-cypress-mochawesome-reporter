@@ -13,7 +13,6 @@ class Expect{
      shouldElementXBeVisible(element){
         Page.isElementXVisible(element);
      }
-
  }
 
 module.exports = new Expect();

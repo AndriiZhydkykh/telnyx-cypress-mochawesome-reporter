@@ -1,12 +1,10 @@
 import MainPage from '../../page/telnyx/main.page.cy'
 import PricingPage from '../../page/telnyx/pricing.page.cy'
-const messagingPricingUkraineTitleTitle='//h1//span[text()="Messaging pricing for Ukraine"]'
-
 import Expect from'../../helper/expect.cy'
 
 describe('Pricing page testing', () => {
     beforeEach(() => {
-    cy.visit('/')
+    MainPage.open();
     Expect.toHaveUrl('https://telnyx.com/');
     cy.closeModalWindowInManePage();
   })
@@ -16,8 +14,9 @@ describe('Pricing page testing', () => {
     PricingPage.clickUkrainePriceMassagingInSelect();
 
     Expect.shouldContainUrl('messaging/ua');
-    Expect.shouldElementXBeVisible(messagingPricingUkraineTitleTitle);
+    Expect.shouldElementXBeVisible(PricingPage.getMessagingPricingUkraineTitleTitle());
     })  
+    
     afterEach(() => {
       cy.screenshot({ overwrite: false })
       })   

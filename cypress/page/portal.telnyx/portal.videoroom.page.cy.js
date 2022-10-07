@@ -6,6 +6,11 @@ const renameVideoRoomIcon='(//*[@data-testid="container-two-columns-content"]//b
 const deleteVideoRoomIcon='(//*[@data-testid="container-two-columns-content"]//button)[4]'
 const confirmDeleteRoomButton='(//*[contains(@class,"Modal")]//button)[2]'
 const saveRenameButton='//*[@type="submit"][text()="Save"]'
+const createVideoRoomFlashNotice='//*[text()="Created video room new room successfully."]'
+const renameVideoRoomFlashNotice='//span[text()="Room settings have been saved!"]'
+const roomNameThatWasCreate='//*[@title="Room Name"][text()="new room"]'
+const roomNameThatWasRenamed='//*[@title="Room Name"][text()="second room"]'
+
 
 class VideoRoomPortalPage{
     clickTryVideoRoomButton(){
@@ -29,6 +34,22 @@ class VideoRoomPortalPage{
     clickSaveRenameButton(){
         Page.clickX(saveRenameButton);
     }
+    getCreateVideoRoomFlashNotice(){
+        return createVideoRoomFlashNotice
+    }
+    getRenameVideoRoomFlashNotice(){
+        return renameVideoRoomFlashNotice
+    }
+    getRoomNameThatWasCreate(){
+        return roomNameThatWasCreate
+    }
+    getRoomNameThatWasRenamed(){
+        return roomNameThatWasRenamed
+    }
+    getTryVideoRoomButton(){
+        return tryVideoRoomButton
+    }
+    
 }
 
 module.exports = new VideoRoomPortalPage();

@@ -1,16 +1,11 @@
 import MainPortalPage from '../../page/portal.telnyx/portal.main.page.cy'
 import Expect from'../../helper/expect.cy'
-const url=Cypress.env('URLS')
-const login=Cypress.env('USER')
-const password=Cypress.env('PASSWORD')
-const loginForm='[data-testid="login.signin"]'
-const PricingPortalPage='//div [@aria-selected="true"] [text()="Voice"]'
-
+import LoginPage from '../../page/telnyx/login.page.cy'
 
 describe('Portal telnyx drop-down menu testing', () => {
   beforeEach(() => {
-    cy.visit(url['portal']);
-    cy.login(login,password);
+    MainPortalPage.open();
+    cy.login(LoginPage.getUser(),LoginPage.getPassword());
 
   })
 
@@ -18,14 +13,14 @@ describe('Portal telnyx drop-down menu testing', () => {
     MainPortalPage.moveToUserDropDownMenu();
     MainPortalPage.clickSignOutButton();
     Expect.shouldContainUrl('sign-in');
-    Expect.shouldElementBeVisible(loginForm);
+    Expect.shouldElementBeVisible(MainPortalPage.getLoginForm());
     })   
     
   it('ID-3 Open voice pricing at portal.telnyx.com', () => {
     MainPortalPage.moveToUserDropDownMenu();
     MainPortalPage.clickPricingButtonInDropDown();
     Expect.shouldContainUrl('app/pricing');
-    Expect.shouldElementXBeVisible(PricingPortalPage);
+    Expect.shouldElementXBeVisible(MainPortalPage.pricingPortalPage());
 
     })
     afterEach(() => {

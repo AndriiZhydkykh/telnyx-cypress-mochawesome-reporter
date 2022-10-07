@@ -2,7 +2,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     baseUrl:'https://telnyx.com',
-    defaultCommandTimeout:30000,
+    defaultCommandTimeout:5000,
     viewportHeight:1080,
     viewportWidth:1920,
     video:false,

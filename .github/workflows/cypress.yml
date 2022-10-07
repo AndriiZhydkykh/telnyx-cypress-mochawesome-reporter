@@ -21,14 +21,14 @@ jobs:
               run: npm i
             - name: Install Cypress
               run: npm install cypress
-            - name: Install reporter 
-              run: npm i --save-dev cypress-mochawesome-reporter
-            - name: run test
+            - name: run test and create report
               run: npm run cypress:run 
 
+            - name: Upload artifact mochawesome-reporter
+              uses: actions/upload-artifact@v3
               if: always()
               with:
-                  name: report
+                  name: mochawesome-reporter
                   path: ./cypress/reports/
                   retention-days: 5 
             - name: Deploy to pages
@@ -37,4 +37,4 @@ jobs:
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_branch: gh-pages
-                  publish_dir: ./cypress/reports/
+                  publish_dir: reports/

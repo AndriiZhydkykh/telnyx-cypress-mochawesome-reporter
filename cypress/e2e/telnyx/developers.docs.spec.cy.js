@@ -1,19 +1,18 @@
 import MainPage from '../../page/telnyx/main.page.cy'
 import Expect from'../../helper/expect.cy'
-const developersDocsTitle='#telnyx-api-v2-documentation'
+import DevelopersDocsPage from '../../page/telnyx/developers.docs.page.cy'
 
 describe('Developers docs page testing', () => {
     beforeEach(() => {
-    cy.visit('/')
+    MainPage.open()
     Expect.toHaveUrl('https://telnyx.com/');
     cy.closeModalWindowInManePage();
   })
     it('ID-8 - Open the Telnyx API Documentation', () => {
-    //MainPage.clickResourcesHeaderMenuButton();
     MainPage.clickDeveloperDocsResourcesHeaderDropDownButton();
 
     Expect.shouldContainUrl('developers.telnyx.com');
-    Expect.shouldElementBeVisible(developersDocsTitle);
+    Expect.shouldElementBeVisible(DevelopersDocsPage.getDevelopersDocsTitle());
     })   
     afterEach(() => {
       cy.screenshot({ overwrite: false })

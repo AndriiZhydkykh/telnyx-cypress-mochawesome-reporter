@@ -23,7 +23,9 @@ class MainPage{
         Page.clickXForceTrue(smsApiPricingHeaderDropDownButton)
     }
 
-   
+   open(){
+    cy.visit('/')
+   }
 
 }
 

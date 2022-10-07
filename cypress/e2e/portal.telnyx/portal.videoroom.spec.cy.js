@@ -1,19 +1,11 @@
 import MainPortalPage from '../../page/portal.telnyx/portal.main.page.cy'
-import Expect from'../../helper/expect.cy'
-const url=Cypress.env('URLS')
-const user=Cypress.env('USER')
-const password=Cypress.env('PASSWORD')
-const createVideoRoomFlashNotice='//*[text()="Created video room new room successfully."]'
-const renameVideoRoomFlashNotice='//span[text()="Room settings have been saved!"]'
-const roomNameThatWasCreate='//*[@title="Room Name"][text()="new room"]'
-const roomNameThatWasRenamed='//*[@title="Room Name"][text()="second room"]'
-const tryVideoRoomButton ='//*[@type="button"][text()="Try the Demo App"]'
+import VideoRoomPortalPage from '../../page/portal.telnyx/portal.videoroom.page.cy'
+import LoginPage from '../../page/telnyx/login.page.cy'
 
 describe('Portal video room testing at portal.telnyx.com', () => {
   beforeEach(() => {
-    cy.visit(url['portal']);
-    cy.login(user,password);
-
+    MainPortalPage.open();
+    cy.login(LoginPage.getUser(),LoginPage.getPassword());
   })
   it('ID-4 Create demo video rooms for 10 person at portal.telnyx.com', () => {
     MainPortalPage.clickVideoRoomButton();
@@ -21,9 +13,9 @@ describe('Portal video room testing at portal.telnyx.com', () => {
 
     cy.createVideoRoom('new room');
 
-    Expect.shouldElementXBeVisible(createVideoRoomFlashNotice);
+    Expect.shouldElementXBeVisible(VideoRoomPortalPage.getCreateVideoRoomFlashNotice());
     MainPortalPage.clickVideoRoomButton();
-    Expect.shouldElementXBeVisible(roomNameThatWasCreate);
+    Expect.shouldElementXBeVisible(VideoRoomPortalPage.getRoomNameThatWasCreate());
     })   
 
     it('ID-5 Rename video room at portal.telnyx.com', () => {
@@ -32,8 +24,8 @@ describe('Portal video room testing at portal.telnyx.com', () => {
       
     cy.renameVideoRoom('new room','second room');
   
-    Expect.shouldElementXBeVisible(renameVideoRoomFlashNotice);
-    Expect.shouldElementXBeVisible(roomNameThatWasRenamed);
+    Expect.shouldElementXBeVisible(VideoRoomPortalPage.getRenameVideoRoomFlashNotice());
+    Expect.shouldElementXBeVisible(VideoRoomPortalPage.getRoomNameThatWasRenamed());
     })
        
      it('ID-6 Delete demo video room at portal.telnyx.com', () => {
@@ -42,7 +34,7 @@ describe('Portal video room testing at portal.telnyx.com', () => {
 
      cy.deleteVideoRoom('new room');
 
-     Expect.shouldElementXBeVisible(tryVideoRoomButton);
+     Expect.shouldElementXBeVisible(VideoRoomPortalPage.getTryVideoRoomButton());
     })
     afterEach(() => {
       cy.screenshot({ overwrite: false })
