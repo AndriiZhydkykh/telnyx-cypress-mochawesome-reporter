@@ -39,6 +39,10 @@ npm run cypress:open:hub
 ```
 npm run cypress:run:hub
 ```
+#### For run report:
 
+```
+start cypress/reports/html/index.html
+```
 ## For tester
 The 'X' in the command name on the page is xpath

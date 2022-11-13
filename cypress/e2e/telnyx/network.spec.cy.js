@@ -1,15 +1,15 @@
-import MainPage from '../../page/telnyx/main.page.cy'
-import NetworkPage from '../../page/telnyx/network.page.cy'
-import PricingPage from '../../page/telnyx/pricing.page.cy'
+import MainPage from '../../page/main.page.cy'
+import NetworkPage from '../../page/network.page.cy'
+import PricingPage from '../../page/pricing.page.cy'
 
 import Expect from'../../helper/expect.cy'
 describe('Network page testing', () => {
-    beforeEach(() => {
+    before(() => {
     MainPage.open();
     Expect.toHaveUrl('https://telnyx.com/');
     cy.closeModalWindowInManePage();
   })
-    it('ID-7 - Open prices of network in the network page', () => {
+    it('ID-3 - Open prices of network in the network page', () => {
     MainPage.clickNetworkHeaderMenuButton();
     NetworkPage.clickPricingButton();
 
@@ -19,6 +19,6 @@ describe('Network page testing', () => {
     Expect.shouldElementXBeVisible(NetworkPage.getNetworkingTitle());
     })  
     afterEach(() => {
-      cy.screenshot({ overwrite: false })
+    cy.screenshot({ overwrite: false })
       })   
   })

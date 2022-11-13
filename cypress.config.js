@@ -3,8 +3,8 @@ module.exports = defineConfig({
   e2e: {
     baseUrl:'https://telnyx.com',
     defaultCommandTimeout:5000,
-    viewportHeight:1080,
-    viewportWidth:1920,
+    viewportHeight: 864,
+    viewportWidth: 1536,
     video:false,
     screenshotOnRunFailure:true,
     retries: {

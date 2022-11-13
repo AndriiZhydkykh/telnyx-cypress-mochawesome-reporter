@@ -1,14 +1,14 @@
-import MainPage from '../../page/telnyx/main.page.cy'
-import PricingPage from '../../page/telnyx/pricing.page.cy'
+import MainPage from '../../page/main.page.cy'
+import PricingPage from '../../page/pricing.page.cy'
 import Expect from'../../helper/expect.cy'
 
 describe('Pricing page testing', () => {
-    beforeEach(() => {
+    before(() => {
     MainPage.open();
     Expect.toHaveUrl('https://telnyx.com/');
     cy.closeModalWindowInManePage();
   })
-    it('ID-10 Open pricing of SMS API for Ukraine in the pricing page', () => {
+    it('ID-4 Open pricing of SMS API for Ukraine in the pricing page', () => {
     MainPage.clickSmsApiPricingDropDownHeaderMenu();
     PricingPage.clickPricingMassagingPoPUp();
     PricingPage.clickUkrainePriceMassagingInSelect();

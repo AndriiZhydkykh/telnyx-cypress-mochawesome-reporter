@@ -1,4 +1,4 @@
-import Page from '../page.cy'
+import Page from './page.cy'
 const pricingButton='(//*[@href="/pricing"])[2]';
 const networkingTitle='//h1//span[text()="Networking pricing"]'
 

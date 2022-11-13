@@ -1,9 +1,10 @@
-import Page from '../page.cy'
+import Page from './page.cy'
 const loginHeaderBtn='header a.blLdCs[href*="https://portal.telnyx.com/"]';
 const networkHeaderMenuButton='(//*[@href="/solutions/global-ip-network"])[1]';
 const developerDocsResourcesHeaderDropDownButton='header [href*="https://developers.telnyx.com/docs/"]'
 const aboutTelnyxCompanyHeaderDropdownButton='//*[text()="About Telnyx"]'
 const smsApiPricingHeaderDropDownButton='(//span[text()="SMS API"])[2]'
+const verifyAPIFooterLink='[href="/products/verify-api"]'
 
 class MainPage{
     clickOnLoginHeaderBtn(){
@@ -21,6 +22,9 @@ class MainPage{
     }
      clickSmsApiPricingDropDownHeaderMenu(){
         Page.clickXForceTrue(smsApiPricingHeaderDropDownButton)
+    }
+    clickVerifyAPIFooterLink(){
+        Page.clickForceTrue(verifyAPIFooterLink)
     }
 
    open(){

@@ -1,4 +1,4 @@
-import Page from '../page.cy'
+import Page from './page.cy'
 const seeNetworkingPricingButton='[href="/pricing/networking"]';
 const pricingMassagingPoPUp='(//*[@aria-haspopup="listbox"])[1]'
 const ukrainePriceMassagingInSelect='[href="/pricing/messaging/ua"]'

@@ -53,4 +53,4 @@ cypress/reports
 jsonlogs
 
 #screenshots
-cypress/screenshots
+cypress/screenshots/

@@ -1,4 +1,4 @@
-import Page from '../page.cy'
+import Page from './page.cy'
 const emailInputLoginPage="[aria-label='loginForm']>div>div input[name='email']"
 const passwordInputLoginPage="[name='password']"
 const loginButtonLoginPage="[aria-label='loginForm'] button[type='submit']"
