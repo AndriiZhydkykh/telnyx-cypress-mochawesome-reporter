@@ -15,8 +15,6 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
                   cache: "npm"
-            - name: update node manager
-              run: npm i npm@latest
             - name: install all dependencies
               run: npm i
             - name: Install Cypress
